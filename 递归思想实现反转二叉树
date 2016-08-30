@@ -1,0 +1,25 @@
+package project4;
+
+/**
+ * @author cuihao
+ *
+ */
+public class BinaryTreeRecursion {
+	public class Node{
+		public Node left;
+		public Node right;
+	}
+	
+	public static void Recursion(Node node){//方法
+		if(node==null){
+			return ;
+		}
+		Node ch;
+		ch=node.left;
+		node.left=node.right;
+		node.right=ch;
+		
+		Recursion(node.left);//子节点
+		Recursion(node.right);
+	}
+}
