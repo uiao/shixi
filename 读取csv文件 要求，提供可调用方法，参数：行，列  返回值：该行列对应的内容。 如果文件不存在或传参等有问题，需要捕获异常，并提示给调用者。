@@ -1,0 +1,36 @@
+/**
+ * @cuihao
+ */
+package pr3;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+public class Test {
+    public  void test(int row,int col){
+          try {           
+           BufferedReader reader = new BufferedReader(new FileReader("F:\\lianxi3.csv"));  //bufferReader按行读    
+          // reader.readLine(); 没有标题用不着了     
+           String line = null;
+           int index=0;
+           while((line=reader.readLine())!=null){
+               String item[] = line.split(",");//一行数组
+               
+               if(index==row-1){//？
+                if(item.length>=col-1){
+                    String last = item[col-1];//这里
+                    System.out.println(last);         
+                }
+            }
+               
+            index++;
+            }      
+           } catch (Exception e) {
+            e.printStackTrace();//在命令行打印异常信息在程序中出错的位置及原因。
+            }
+    }
+ 
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.test(3, 1);
+    }
+}
